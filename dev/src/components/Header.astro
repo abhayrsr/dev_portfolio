@@ -1,20 +1,20 @@
 ---
 import Navigation from './Navigation.astro';
 import ThemeIcon from './ThemeIcon.astro';
-import NavBar from "@/components/ui/NavBar.astro"
-import { Home, User, Briefcase, FileText } from 'lucide-react';
+import {NavBar} from "@/components/ui/NavBar.tsx"
+import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
 
 const navItems = [
-    { name: 'Home', url: '#', icon: Home },
-    { name: 'About', url: '#', icon: User },
-    { name: 'Projects', url: '#', icon: Briefcase },
-    { name: 'Resume', url: '#', icon: FileText },
-    { name: 'Contact', url: '#', icon: User }
+    { name: 'Home', url: '#', icon: 'Home' },
+    { name: 'About', url: '#', icon: 'User' },
+    { name: 'Projects', url: '#', icon: 'Briefcase' },
+    { name: 'Resume', url: '#', icon: 'FileText' },
+    { name: 'Contact', url: '#', icon: 'Mail' }
   ]
 ---
 <header>
   <nav>
-    <NavBar items={navItems} />
+    <NavBar items={navItems} client:only />
     
     <ThemeIcon />
   </nav>
