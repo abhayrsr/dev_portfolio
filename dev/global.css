@@ -1,6 +1,14 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+ 
+  .sun { fill: black; }
+  .moon { fill: transparent; }
+
+  :global(.dark) .sun { fill: transparent; }
+  :global(.dark) .moon { fill: white; }
+
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {

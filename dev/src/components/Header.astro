@@ -1,6 +1,6 @@
 ---
 import Navigation from './Navigation.astro';
-import ThemeIcon from './ThemeIcon.astro';
+import ThemeIcon from './ThemeIcon.tsx';
 import {NavBar} from "@/components/ui/NavBar.tsx"
 import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
 
@@ -9,13 +9,11 @@ const navItems = [
     { name: 'About', url: '#', icon: 'User' },
     { name: 'Projects', url: '#', icon: 'Briefcase' },
     { name: 'Resume', url: '#', icon: 'FileText' },
-    { name: 'Contact', url: '#', icon: 'Mail' }
+    { name: 'Contact', url: '#', icon: 'Mail' },
   ]
 ---
 <header>
   <nav>
     <NavBar items={navItems} client:only />
-    
-    <ThemeIcon />
   </nav>
 </header>

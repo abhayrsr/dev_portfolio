@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
+import { Home, User, Briefcase, FileText, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
+import ThemeIcon from "../ThemeIcon";
 
 const icons = {
   Home,
   User,
   Briefcase,
   FileText,
-  Mail
+  Mail,
 };
 
 interface NavItem {
@@ -106,6 +107,7 @@ export function NavBar({
             </button>
           );
         })}
+        <ThemeIcon />
       </div>
     </div>
   );
