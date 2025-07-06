@@ -3,6 +3,8 @@ import Header from '../components/Header.astro';
 import Layout from '../layouts/Layout.astro';
 import '../../global.css'
 import {BGPattern} from '../components/ui/bg-pattern.tsx'
+import Hero from '../components/Hero.astro';
+import '../../global.css'
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -10,5 +12,8 @@ import {BGPattern} from '../components/ui/bg-pattern.tsx'
 
 <Layout>
   <BGPattern variant="grid" mask="fade-edges" className="dark" />
-  <Header />
+  <main class="flex flex-col">
+      <Header />
+      <Hero />
+  </main>
 </Layout>

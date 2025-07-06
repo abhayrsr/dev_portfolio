@@ -1,0 +1,12 @@
+---
+import {TypewriterEffectSmooth} from '../components/ui/typewriter-effect.tsx'
+const wordArray = [{text: "My"}, {text: "Name"}, {text: "is"}, {text: "Abhay", className: "text-blue-500 dark:text-blue-500",}];
+---
+<section >
+  <div> 
+
+    <TypewriterEffectSmooth words={wordArray}  client:only/>
+
+  </div>
+</section>
+
