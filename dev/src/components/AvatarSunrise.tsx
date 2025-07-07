@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import rough from 'roughjs/bundled/rough.esm.js'
+import "../../global.css"
 
 interface Props {
   imgSrc: string
@@ -16,12 +17,11 @@ export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
     svg.innerHTML = ''
 
     const cx = 50
-    const cy = 90
-    const radius = 40
+    const cy = 50
+    const radius = 20
     const numZigs = 9
     const angleStep = Math.PI / (numZigs - 1)
 
-    // Zig-zag sunrise crown
     for (let i = 0; i < numZigs - 1; i++) {
       const theta1 = Math.PI + i * angleStep
       const theta2 = Math.PI + (i + 1) * angleStep
@@ -33,7 +33,7 @@ export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
       const y2 = cy + radius * Math.sin(theta2)
 
       const midAngle = (theta1 + theta2) / 2
-      const spikeLength = 15
+      const spikeLength = 20
 
       const xm = cx + (radius + spikeLength) * Math.cos(midAngle)
       const ym = cy + (radius + spikeLength) * Math.sin(midAngle)
@@ -59,40 +59,20 @@ export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
 
   return (
     <div className="relative w-40 h-40 mx-auto">
-      {/* Image masked to semi-circle */}
-      <svg
-        className="absolute inset-0 w-full h-full"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <defs>
-          <clipPath id="halfCircleMask">
-            <path d="M10,90 A40,40 0 0,1 90,90 L90,100 L10,100 Z" />
-          </clipPath>
-        </defs>
+      {/* Avatar Image - full circle */}
+      <img
+        src={imgSrc}
+        alt="Avatar"
+        className="w-full h-full object-cover rounded-full shadow-lg z-10 absolute top-0 left-0 fade-mask"
+      />
 
-        <image
-          href={imgSrc}
-          width="100"
-          height="100"
-          preserveAspectRatio="xMidYMid slice"
-          clipPath="url(#halfCircleMask)"
-        />
-        {/* Optional: dark outline arc */}
-        <path
-          d="M10,90 A40,40 0 0,1 90,90"
-          stroke="black"
-          strokeWidth="2"
-          fill="none"
-        />
-      </svg>
-
-      {/* Rough zig-zag sunrise crown */}
+      {/* Zig-zag sunrise crown over top half */}
       <svg
         ref={crownRef}
-        className="absolute inset-0 w-full h-full pointer-events-none"
+        className="absolute top-0 left-0 -mt-4 w-full h-full pointer-events-none z-0"
         viewBox="0 0 100 100"
         preserveAspectRatio="xMidYMid meet"
+       
       />
     </div>
   )
