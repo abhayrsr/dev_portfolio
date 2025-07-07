@@ -1,5 +1,6 @@
 ---
 import {TypewriterEffectSmooth} from '../components/ui/typewriter-effect.tsx'
+import AvatarSunrise from '../components/AvatarSunrise.tsx'
 const wordArray = [{text: "Building"}, {text: "AI-powered", className: "text-blue-500 dark:text-blue-500"}, {text: "web apps."}];
 ---
 <section >
@@ -8,6 +9,7 @@ const wordArray = [{text: "Building"}, {text: "AI-powered", className: "text-blu
     💥 Indie full-stack dev shipping clean, fast, AI-augmented apps.
     </p>
     <TypewriterEffectSmooth words={wordArray}  client:only/>
+    <AvatarSunrise imgSrc="dev.svg" client:only/>
 
   </div>
 </section>
