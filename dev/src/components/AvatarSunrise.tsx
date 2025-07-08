@@ -1,42 +1,43 @@
-import React, { useEffect, useRef } from 'react'
-import rough from 'roughjs/bundled/rough.esm.js'
-import "../../global.css"
+import React, { useEffect, useRef } from "react";
+import rough from "roughjs/bundled/rough.esm.js";
+import "../../global.css";
 
 interface Props {
-  imgSrc: string
+  imgSrc: string;
 }
 
 export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
-  const crownRef = useRef<SVGSVGElement | null>(null)
+  const crownRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
-    const svg = crownRef.current
-    if (!svg) return
+    const svg = crownRef.current;
+    if (!svg) return;
 
-    const rc = rough.svg(svg)
-    svg.innerHTML = ''
+    const rc = rough.svg(svg);
+    svg.innerHTML = "";
 
-    const cx = 50
-    const cy = 50
-    const radius = 20
-    const numZigs = 9
-    const angleStep = Math.PI / (numZigs - 1)
+    const cx = 50;
+    const cy = 50;
+    const radius = 20;
+    const numZigs = 9;
+    const angleStep = Math.PI / (numZigs - 1);
+    <AvatarSunrise imgSrc="dev1.png" client:only />;
 
     for (let i = 0; i < numZigs - 1; i++) {
-      const theta1 = Math.PI + i * angleStep
-      const theta2 = Math.PI + (i + 1) * angleStep
+      const theta1 = Math.PI + i * angleStep;
+      const theta2 = Math.PI + (i + 1) * angleStep;
 
-      const x1 = cx + radius * Math.cos(theta1)
-      const y1 = cy + radius * Math.sin(theta1)
+      const x1 = cx + radius * Math.cos(theta1);
+      const y1 = cy + radius * Math.sin(theta1);
 
-      const x2 = cx + radius * Math.cos(theta2)
-      const y2 = cy + radius * Math.sin(theta2)
+      const x2 = cx + radius * Math.cos(theta2);
+      const y2 = cy + radius * Math.sin(theta2);
 
-      const midAngle = (theta1 + theta2) / 2
-      const spikeLength = 20
+      const midAngle = (theta1 + theta2) / 2;
+      const spikeLength = 20;
 
-      const xm = cx + (radius + spikeLength) * Math.cos(midAngle)
-      const ym = cy + (radius + spikeLength) * Math.sin(midAngle)
+      const xm = cx + (radius + spikeLength) * Math.cos(midAngle);
+      const ym = cy + (radius + spikeLength) * Math.sin(midAngle);
 
       const triangle = rc.polygon(
         [
@@ -45,36 +46,32 @@ export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
           [x2, y2],
         ],
         {
-          stroke: '#facc15',
-          fill: '#facc15',
+          stroke: "#facc15",
+          fill: "#facc15",
           strokeWidth: 1.5,
           roughness: 1.2,
-          fillStyle: 'solid',
-        }
-      )
+          fillStyle: "solid",
+        },
+      );
 
-      svg.appendChild(triangle)
+      svg.appendChild(triangle);
     }
-  }, [])
+  }, []);
 
   return (
-    <div className="relative w-40 h-40 mx-auto">
-      {/* Avatar Image - full circle */}
-      <img
-        src={imgSrc}
-        alt="Avatar"
-        className="w-full h-full object-cover rounded-full shadow-lg z-10 absolute top-0 left-0 fade-mask"
-      />
+    <div className="container flex justify-between w-5/6 px-4">
+      <div className="flex justify-between">
+        <div className="relative w-20 h-20 mx-auto">
+          {/* Avatar Image - full circle */}
+          <img
+            src={imgSrc}
+            alt="Avatar"
+            className=" w-full h-full object-cover border border-gray-300 rounded-full shadow-lg z-10 absolute top-0 left-0 fade-mask"
+          />
+        </div>
 
-      {/* Zig-zag sunrise crown over top half */}
-      <svg
-        ref={crownRef}
-        className="absolute top-0 left-0 -mt-4 w-full h-full pointer-events-none z-0"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="xMidYMid meet"
-       
-      />
+        {/* Zig-zag sunrise crown over top half */}
+      </div>
     </div>
-  )
+  );
 }
-
