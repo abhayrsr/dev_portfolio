@@ -1,14 +1,14 @@
 ---
 import {TypewriterEffectSmooth} from '../components/ui/typewriter-effect.tsx'
 import { Tilt} from '../components/ui/tilt.tsx'
-const wordArray = [ {text: "I'm Abhay 🙏,"}, {text: "a free soul.", className: "text-blue-500 dark:text-blue-500"} ];
+const wordArray = [ {text: "I'm Abhay,"}, {text: "🤝"}, {text: "a free soul.", className: "text-blue-500 dark:text-blue-500"} ];
 ---
 <section class="container mx-auto flex flex-row " >
-  <div class="w-1/2 flex flex-col items-center justify-end mt-7 ml-[3.5vw]">
+  <div class="w-11/20 flex flex-col items-center justify-end mt-7 ml-[3.5vw]">
     <div class="w-full">
       <TypewriterEffectSmooth words={wordArray} client:only />
     </div>
-  <div class="w-full text-wrap my-4 pr-10 top-0 left-0 align-center">
+  <div class="w-full my-4">
       <p>
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       </p>
@@ -34,7 +34,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         </div>
     </div>
   </div>
-  <div class="w-1/2 flex items-center justify-center mb-4">
+  <div class="w-9/20 flex items-center justify-center mb-4 right-3">
     <Tilt rotationFactor={8} isRevese client:only>
       <div
         style={{
@@ -51,15 +51,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           <h1 class='font-mono leading-snug text-zinc-950 dark:text-zinc-50'>
             Ready to rock and roll
           </h1>
-          <p class='text-zinc-700 dark:text-zinc-400'>Hire me</p>
+          <p class='text-zinc-700 dark:text-zinc-400'>Hire me 🥷</p>
           <div class="flex flex-row gap-2">
             <input
               type="text"
               class="h-8 border-2 border-gray-500 px-4 py-2 rounded"
+              placeholder="enter your email"
             />
 
           <button
-            class="h-8 border-2 border-blue-500 px-4 py-2 rounded flex items-center"
+            class="h-8 border-2 border-blue-500 px-4 py-2 rounded flex items-center cursor-pointer"
           >
             Submit
           </button>   
