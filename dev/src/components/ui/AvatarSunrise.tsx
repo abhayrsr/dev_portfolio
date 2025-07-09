@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import rough from "roughjs/bundled/rough.esm.js";
-import "../../global.css";
+import "../../../global.css";
 
 interface Props {
   imgSrc: string;
@@ -59,19 +59,17 @@ export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
   }, []);
 
   return (
-    <div className="container flex justify-between w-5/6 px-4">
-      <div className="flex justify-between">
-        <div className="relative w-20 h-20 mx-auto">
-          {/* Avatar Image - full circle */}
-          <img
-            src={imgSrc}
-            alt="Avatar"
-            className=" w-full h-full object-cover border border-gray-300 rounded-full shadow-lg z-10 absolute top-0 left-0 fade-mask"
-          />
-        </div>
-
-        {/* Zig-zag sunrise crown over top half */}
+    <div className="flex items-center justify-start">
+      <div className="relative lg:w-20 lg:h-20 w-16 h-16 mx-auto">
+        {/* Avatar Image - full circle */}
+        <img
+          src={imgSrc}
+          alt="Avatar"
+          className=" w-full h-full object-cover border border-gray-300 rounded-full shadow-lg z-10 absolute top-0 left-0 fade-mask"
+        />
       </div>
+
+      {/* Zig-zag sunrise crown over top half */}
     </div>
   );
 }
