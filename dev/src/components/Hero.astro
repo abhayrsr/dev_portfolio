@@ -1,8 +1,134 @@
 ---
 import {TypewriterEffectSmooth} from '../components/ui/typewriter-effect.tsx'
 import { Tilt} from '../components/ui/tilt.tsx'
+import {HoverEffect } from '../components/ui/card-hover-effect.tsx'
+import {TestimonialsColumn} from '../components/blocks/testimonials-columns-1.tsx'
+import { motion } from "motion/react";
 import "../../global.css"
 const wordArray = [  {text: "a free soul.", className: "text-blue-500 dark:text-blue-500"} ];
+ const projects = [
+  {
+    title: "Stripe",
+    description:
+      "A technology company that builds economic infrastructure for the internet.",
+    link: "https://stripe.com",
+  },
+  {
+    title: "Netflix",
+    description:
+      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+    link: "https://netflix.com",
+  },
+  {
+    title: "Google",
+    description:
+      "A multinational technology company that specializes in Internet-related services and products.",
+    link: "https://google.com",
+  },
+  ];
+
+const blogs = [
+  {
+    title: "Stripe",
+    description:
+      "A technology company that builds economic infrastructure for the internet.",
+    link: "https://stripe.com",
+  },
+  {
+    title: "Netflix",
+    description:
+      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+    link: "https://netflix.com",
+  },
+  {
+    title: "Google",
+    description:
+      "A multinational technology company that specializes in Internet-related services and products.",
+    link: "https://google.com",
+  },
+   {
+    title: "Stripe",
+    description:
+      "A technology company that builds economic infrastructure for the internet.",
+    link: "https://stripe.com",
+  },
+  {
+    title: "Netflix",
+    description:
+      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
+    link: "https://netflix.com",
+  },
+  {
+    title: "Google",
+    description:
+      "A multinational technology company that specializes in Internet-related services and products.",
+    link: "https://google.com",
+  },
+
+  ];
+
+const testimonials = [
+  {
+    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    image: "https://randomuser.me/api/portraits/women/1.jpg",
+    name: "Briana Patton",
+    role: "Operations Manager",
+  },
+  {
+    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    image: "https://randomuser.me/api/portraits/men/2.jpg",
+    name: "Bilal Ahmed",
+    role: "IT Manager",
+  },
+  {
+    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    image: "https://randomuser.me/api/portraits/women/3.jpg",
+    name: "Saman Malik",
+    role: "Customer Support Lead",
+  },
+  {
+    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    image: "https://randomuser.me/api/portraits/men/4.jpg",
+    name: "Omar Raza",
+    role: "CEO",
+  },
+  {
+    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    image: "https://randomuser.me/api/portraits/women/5.jpg",
+    name: "Zainab Hussain",
+    role: "Project Manager",
+  },
+  {
+    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    image: "https://randomuser.me/api/portraits/women/6.jpg",
+    name: "Aliza Khan",
+    role: "Business Analyst",
+  },
+  {
+    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    image: "https://randomuser.me/api/portraits/men/7.jpg",
+    name: "Farhan Siddiqui",
+    role: "Marketing Director",
+  },
+  {
+    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    image: "https://randomuser.me/api/portraits/women/8.jpg",
+    name: "Sana Sheikh",
+    role: "Sales Manager",
+  },
+  {
+    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    image: "https://randomuser.me/api/portraits/men/9.jpg",
+    name: "Hassan Ali",
+    role: "E-commerce Manager",
+  },
+];
+
+
+const firstColumn = testimonials.slice(0, 3);
+const secondColumn = testimonials.slice(3, 6);
+const thirdColumn = testimonials.slice(6, 9);
+
 ---
 <section class="w-full max-w-screen-xl mx-auto flex lg:flex-row md:flex-col" >
   <div class="flex flex-col  justify-start lg:basis-[65%] lg:flex-grow-0 lg:flex-shrink-0 mt-4 ">
@@ -45,7 +171,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         style={{
           borderRadius: '12px',
         }}
-        class='flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-zinc-900'
+        class='flex flex-col overflow-hidden border border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-transparent'
       >
         <img
           src='https://images.beta.cosmos.so/f7fcb95d-981b-4cb3-897f-e35f6c20e830?format=jpeg'
@@ -56,7 +182,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           <h1 class='font-mono leading-snug text-zinc-950 dark:text-zinc-50'>
             Ready to rock and roll
           </h1>
-          <p class='text-zinc-700 dark:text-zinc-400'>Hire me 🥷</p>
+          <p class='text-zinc-700 dark:text-zinc-400'>Build with me. An occasional newsletter 🥷</p>
           <div class="flex flex-row gap-2">
             <input
               type="text"
@@ -77,6 +203,35 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
   </div>
 </section>
-
+<section class="max-w-5xl mx-auto">
+   <div >
+      <HoverEffect items={projects} client:only/>
+   </div>
+</section>
+<section class="bg-transparent relative">
+    <div class="container z-10 mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          viewport={{ once: true }}
+          class="flex flex-col items-center justify-center max-w-[540px] mx-auto"
+        >
+         </motion.div>
+     <div class="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+       <TestimonialsColumn testimonials={firstColumn} duration={15} client:only />
+          <TestimonialsColumn testimonials={secondColumn} class="hidden md:block" duration={19} client:only/>
+          <TestimonialsColumn testimonials={thirdColumn} class="hidden lg:block" duration={17} client:only/>
+     </div>
+    </div>
+</section>
+<section class="max-w-5xl mx-auto">
+   <div>
+      <HoverEffect items={blogs} client:only/>
+   </div>
+  <div class="flex justify-center">
+    <button class="border rounded-sm border-blue-500 hover:bg-gray-900 hover:text-white cursor-pointer p-2  z-10 active:scale-95 transition-transform"> View All Articles </button>
+  </div>
+</section>
 
 
