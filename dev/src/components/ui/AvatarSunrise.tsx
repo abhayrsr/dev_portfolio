@@ -60,7 +60,7 @@ export default function AvatarSunrise({ imgSrc }: Props): JSX.Element {
 
   return (
     <div className="flex items-center justify-start">
-      <div className="relative lg:w-20 lg:h-20 w-16 h-16 mx-auto">
+      <div className="relative lg:w-20 lg:h-20 sm:w-16 sm:h-15 mx-auto">
         {/* Avatar Image - full circle */}
         <img
           src={imgSrc}
