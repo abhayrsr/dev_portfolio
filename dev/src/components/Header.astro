@@ -5,28 +5,27 @@ import {NavBar} from "@/components/ui/NavBar.tsx"
 import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
 
 const navItems = [
-    { name: 'About', url: '#', icon: 'Home' },
-    { name: 'Blogs', url: '#', icon: 'User' },
+{ name: 'About', url: '#', icon: 'Home' },
+{ name: 'Blogs', url: '/blogs', icon: 'User' },
     { name: 'Projects', url: '#', icon: 'Briefcase' },
     { name: 'Contact', url: '#', icon: 'Mail' },
      ]
 ---
-<header class="container mx-auto">
+<header class="container mx-auto" transition:name="main-header">
    <div class="flex items-center justify-between">
     
     <!-- Empty div or logo (optional left-aligned content) -->
-    <div class="w-1/3"></div>
+    <div class="w-[20%]"></div>
 
     <!-- Centered NavBar -->
-    <div class="mx-auto">
+    <div class="w-[60%] flex justify-center ">
       <NavBar items={navItems} client:only />
     </div>
 
     <!-- Right-aligned ThemeIcon -->
-    <div class="w-1/3 flex justify-end">
+    <div class="w-[20%] flex justify-end"> 
       <div class="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
       <ThemeIcon client:only />
-
       </div>
     </div>
 

@@ -170,3 +170,8 @@
     transform: rotate(14deg);
   }
 }
+/* Add to global CSS or layout style */
+
+body::-webkit-scrollbar {
+  display: none;
+}

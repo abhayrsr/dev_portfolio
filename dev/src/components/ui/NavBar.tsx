@@ -44,9 +44,12 @@ export function NavBar({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleItemClick = (item: NavItem) => {
+  const handleItemClick = (item: NavItem, e: React.MouseEvent) => {
     setActiveTab(item.name);
+    console.log("1", item.name);
+    e.preventDefault();
 
+    console.log("2", item.name);
     if (onItemClick) {
       // If custom click handler is provided, use it
       onItemClick(item);
