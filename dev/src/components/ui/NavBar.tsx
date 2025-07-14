@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Home, User, Briefcase, FileText, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-
 const icons = {
   Home,
   User,
@@ -32,8 +31,23 @@ export function NavBar({
   onItemClick,
   useReactRouter = false,
 }: NavBarProps) {
-  const [activeTab, setActiveTab] = useState(items[0].name);
+  const [activeTab, setActiveTab] = useState(items[0].url);
   const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const setActiveLink = () => {
+      const currentPath = window.location.pathname;
+      const activeItem = items.find((item) => item.url === currentPath);
+      if (activeItem) {
+        setActiveTab(activeItem.url);
+      }
+    };
+    setActiveLink();
+    document.addEventListener("astro:after-swap", setActiveLink);
+    return () => {
+      document.removeEventListener("astro:after-swap", setActiveLink);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,36 +58,16 @@ export function NavBar({
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const handleItemClick = (item: NavItem, e: React.MouseEvent) => {
-    setActiveTab(item.name);
-    console.log("1", item.name);
-    e.preventDefault();
-
-    console.log("2", item.name);
-    if (onItemClick) {
-      // If custom click handler is provided, use it
-      onItemClick(item);
-    } else if (useReactRouter) {
-      // If using React Router, you can import and use navigate here
-      // const navigate = useNavigate()
-      // navigate(item.url)
-      console.log("React Router navigation to:", item.url);
-    } else {
-      // Default: use window.location for navigation
-      window.location.href = item.url;
-    }
-  };
-
   return (
     <div className={cn("mb-6 pt-6", className)}>
       <div className="flex items-center gap-3 bg-background/5 border border-border backdrop-blur-lg py-1 px-1 rounded-full shadow-lg">
         {items.map((item) => {
           const Icon = icons[item.icon];
-          const isActive = activeTab === item.name;
+          const isActive = activeTab === item.url;
           return (
-            <button
+            <a
               key={item.name}
-              onClick={() => handleItemClick(item)}
+              href={item.url}
               className={cn(
                 "relative cursor-pointer text-sm font-semibold px-6 py-2 rounded-full transition-colors",
                 "text-foreground/80 hover:text-primary",
@@ -102,7 +96,7 @@ export function NavBar({
                   </div>
                 </motion.div>
               )}
-            </button>
+            </a>
           );
         })}
       </div>

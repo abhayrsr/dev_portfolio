@@ -5,10 +5,11 @@ import {NavBar} from "@/components/ui/NavBar.tsx"
 import { Home, User, Briefcase, FileText, Mail } from 'lucide-react';
 
 const navItems = [
-{ name: 'About', url: '#', icon: 'Home' },
-{ name: 'Blogs', url: '/blogs', icon: 'User' },
-    { name: 'Projects', url: '#', icon: 'Briefcase' },
-    { name: 'Contact', url: '#', icon: 'Mail' },
+{name: 'Home', url: '/', icon: 'Home'},
+{ name: 'About', url: '/about', icon: 'User' },
+{ name: 'Blogs', url: '/blogs', icon: 'FileText' },
+{ name: 'Projects', url: '/projects', icon: 'Briefcase' },
+{ name: 'Contact', url: '/contact', icon: 'Mail' },
      ]
 ---
 <header class="container mx-auto" transition:name="main-header">

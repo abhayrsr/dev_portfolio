@@ -175,3 +175,9 @@
 body::-webkit-scrollbar {
   display: none;
 }
+
+/* Show a progress cursor during page transitions. */
+html::view-transition {
+  cursor: progress;
+}
+@view-transition {navigation: auto}
