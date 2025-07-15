@@ -4,11 +4,11 @@ import "../../../global.css";
 
 interface Props {
   imgSrc: string;
-  width: string;
-  height: string;
+  widthClass?: string;
+  heightClass?: string;
 }
 
-export default function AvatarSunrise({ imgSrc, width, height }: Props): JSX.Element {
+export default function AvatarSunrise({ imgSrc, widthClass, heightClass }: Props): JSX.Element {
   const crownRef = useRef<SVGSVGElement | null>(null);
 
   useEffect(() => {
@@ -62,12 +62,13 @@ export default function AvatarSunrise({ imgSrc, width, height }: Props): JSX.Ele
 
   return (
     <div className="flex items-center">
-      <div className={`relative sm:w-16 sm:h-15 mx-auto`} style={{ width, height }}>
+      <div className={`relative mx-auto ${widthClass} ${heightClass}`}>
         {/* Avatar Image - full circle */}
         <img
           src={imgSrc}
           alt="Avatar"
-          className=" w-full h-full object-cover border border-gray-300 rounded-full shadow-lg z-10 absolute top-0 left-0 fade-mask"
+          loading="eager"
+          className=" w-full h-full object-cover border border-gray-300 rounded-full shadow-lg absolute top-0 left-0 fade-mask"
         />
       </div>
 

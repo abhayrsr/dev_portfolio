@@ -3,7 +3,7 @@ module.exports = {
   content: ["./src/**/*.{astro,js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      sm: "10rem", // changed breakpoint
+      sm: "640px", // changed breakpoint
       md: "768px",
       lg: "1024px",
     },

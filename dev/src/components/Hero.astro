@@ -130,17 +130,17 @@ const secondColumn = testimonials.slice(3, 6);
 const thirdColumn = testimonials.slice(6, 9);
 
 ---
-<section class="w-full max-w-screen-xl mx-auto flex lg:flex-row md:flex-col" >
-  <div class="flex flex-col  justify-start lg:basis-[65%] lg:flex-grow-0 lg:flex-shrink-0 mt-4 ">
+<section class="w-full max-w-screen-xl mx-auto flex lg:flex-row flex-col" >
+  <div class="flex flex-col justify-center lg:justify-start lg:basis-[65%] lg:flex-grow-0 lg:flex-shrink-0 mt-4 ">
     <div class="w-full flex flex-row items-center ">
       <p class="text-5xl mt-6 mr-4 pt-1 font-bold ">Hi there, I'm Abhay, <span class="animate-wave">👋</span> </p>
     </div>
 
-    <div class="w-full mx-auto  ">
+    <div class="w-full mx-auto ">
       <TypewriterEffectSmooth words={wordArray} client:only />
     </div>
-    <div >
-      <p class="w-[80%] flex justify-start ">
+    <div class="w-[80%]" >
+      <p class="sm:w-full flex lg:justify-start mt-4 ">
 Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
       </p>
     </div>
@@ -164,26 +164,27 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         </div>
     </div>
   </div>
-  <div class="flex items-center justify-end lg:w-[35%] lg:flex-grow-0 lg:flex-shrink-0">
+  <div class="flex items-center justify-end lg:w-[35%] ">
 
         <Tilt rotationFactor={8} isRevese client:only>
       <div
         style={{
           borderRadius: '12px',
+
         }}
-        class='flex flex-col overflow-hidden border  hover:border-blue-500 border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-transparent'
+          class='flex flex-col mt-7 border  hover:border-blue-500 border-zinc-950/10 bg-white dark:border-zinc-50/10 dark:bg-transparent'
       >
         <img
           src='https://images.beta.cosmos.so/f7fcb95d-981b-4cb3-897f-e35f6c20e830?format=jpeg'
           alt='Ghost in the shell - Kôkaku kidôtai'
-          class='flex w-full object-cover'
+            class='flex w-full object-cover'
         />
         <div class='p-2'>
           <h1 class='font-mono leading-snug text-zinc-950 dark:text-zinc-50'>
             Build With Me 
           </h1>
           <p class='text-zinc-700 dark:text-zinc-400'>An occasional newsletter 🥷</p>
-          <div class="flex flex-row gap-2">
+          <div class="flex lg:flex-row flex-col gap-2">
             <input
               type="text"
               class="h-8 border-2 border-gray-500 px-4 py-2 rounded"
@@ -191,7 +192,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             />
 
           <button
-            class="h-8 border-2 border-blue-500 px-4 py-2 rounded flex items-center cursor-pointer"
+            class="h-8 md:w-32 border-2 border-blue-500 px-4 py-2 rounded flex items-center md:justify-center cursor-pointer"
           >
             Submit
           </button>   
@@ -203,12 +204,12 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
   </div>
 </section>
-<section class="max-w-5xl mx-auto">
+<section class="mx-auto">
    <div >
       <HoverEffect items={projects} client:only/>
    </div>
 </section>
-<section class="bg-transparent relative">
+{/* <section class="bg-transparent relative">
     <div class="container z-10 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -224,7 +225,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
           <TestimonialsColumn testimonials={thirdColumn} class="hidden lg:block" duration={17} client:only/>
      </div>
     </div>
-</section>
+</section> */}
 <section class="max-w-5xl mx-auto">
    <div>
       <HoverEffect items={blogs} client:only/>
