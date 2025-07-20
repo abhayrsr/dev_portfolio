@@ -12,8 +12,8 @@ const posts = defineCollection({
       url: z.string(),
       alt: z.string()
     }),
-    tags: z.array(z.tring())
+    tags: z.array(z.string())
   })
 })
 
-export const collections = { posts }
+export const collections = { posts: 'postsCollections' }

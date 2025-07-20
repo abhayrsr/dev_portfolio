@@ -37,7 +37,12 @@ export function NavBar({
   useEffect(() => {
     const setActiveLink = () => {
       const currentPath = window.location.pathname;
-      const activeItem = items.find((item) => item.url === currentPath);
+      const activeItem = items.find((item) => {
+        if (item.url === "/posts/blogs") {
+          return currentPath === "/blogs" || currentPath.startsWith("/posts/");
+        }
+        return item.url === currentPath;
+      });
       if (activeItem) {
         setActiveTab(activeItem.url);
       }

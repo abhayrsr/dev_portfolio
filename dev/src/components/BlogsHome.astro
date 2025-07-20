@@ -12,13 +12,15 @@ const blogs = (await getCollection('posts')).sort(
       <div class="max-w-lg antialiased  pt-4 gap-y-3 ">
         {blogs.map((post, index) => (
           <div class="mt-8">
-            <a href={} class="text-2xl font-bold no-underline hover:underline">
+            <a href={`/posts/${post.slug}`} class="text-2xl font-bold no-underline hover:underline">
               <h2 class="">{post.data.title}</h2>
             </a>
-            <p class="text-sm text-gray-500">{post.data.pubDate}</p>
-            <img src={post.data.image.url} alt="blog thumbnail" class="rounded-lg mb-4" />
+            <p class="text-sm text-gray-500">{new Date(post.data.pubDate).toLocaleDateString()}</p>
+            {post.data.image && (
+              <img src={post.data.image.url} alt={post.data.image.alt} class="rounded-lg mb-4" />
+            )}
             <p class="text-sm text-gray-500">{post.data.description}</p>
-            <a href={`../blog-content/post-${index + 1}`} class=" text-blue-500 ">Read article ></a>
+            <a href={`/posts/${post.slug}`} class=" text-blue-500 ">Read article ></a>
           </div>
           ))}
       </div>

@@ -1,0 +1,26 @@
+---
+import Layout from './Layout.astro';
+import {ArrowLeft} from 'lucide-react'; 
+import Footer from '../components/Footer.astro';
+const { title, author, description, pubDate, image } = Astro.props;
+---
+<Layout title={title}>
+  <main class="container max-w-3xl mx-auto px-4 py-12">
+    <div class="mb-8">
+      <a href="/posts/blogs" class="flex flex-row items-center gap-2 text-blue-500 hover:underline"><span><ArrowLeft /></span>Back to Blogs</a>
+    </div>
+    <article class="prose dark:prose-invert">
+      <h1 class="!text-4xl !font-bold !mb-4">{title}</h1>
+      <img src={image.url} alt={image.alt} class="rounded-lg mb-4" />
+      <p class="text-gray-500">By {author} &bull; {new Date(pubDate).toLocaleDateString()}</p>
+      <hr class="my-8" />
+      <div class="p-4 rounded-lg bg-gray-900">
+       <slot />
+      </div>
+    </article>
+    <div class="mt-8 relative z-10">
+       <a href="/posts/blogs" class="flex justify-center text-blue-500 mb-4 cursor-pointer hover:underline ">Read More Articles</a>
+      </div>
+  </main>
+  <Footer />
+</Layout>
