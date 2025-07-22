@@ -38,8 +38,8 @@ export function NavBar({
     const setActiveLink = () => {
       const currentPath = window.location.pathname;
       const activeItem = items.find((item) => {
-        if (item.url === "/posts/blogs") {
-          return currentPath === "/blogs" || currentPath.startsWith("/posts/");
+        if (item.url === "/posts/blogs/1") {
+          return currentPath === "/blogs/1" || currentPath.startsWith("/posts/");
         }
         return item.url === currentPath;
       });

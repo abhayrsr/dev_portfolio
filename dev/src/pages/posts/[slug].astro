@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import PostLayout from '../../../src/layouts/PostLayout.astro'; // Adjust path as needed
+import PostLayout from '../../../src/layouts/PostLayout.astro'; 
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -16,5 +16,5 @@ const { Content } = await post.render();
 <PostLayout title={post.data.title} description={post.data.description} image={post.data.image} author={post.data.author} pubDate={post.data.pubDate} 
   class="container max-w-3xl mx-auto px-4 py-12 bg-black">
 
-  <Content class="bg-gray-50"  />
+  <h1>Test</h1>
 </PostLayout>
