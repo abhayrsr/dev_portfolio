@@ -1,5 +1,5 @@
 ---
-import { ClientRouter } from 'astro:transitions';
+import { ViewTransitions } from 'astro:transitions';
 import {BGPattern} from '../components/ui/bg-pattern.tsx';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
@@ -20,7 +20,7 @@ const { title } = Astro.props;
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
-    <ClientRouter />
+    <ViewTransitions />
 		<script is:inline>
 			(function () {
 			  try {
@@ -33,18 +33,18 @@ const { title } = Astro.props;
 				}
 			  } catch (_) {}
 			})();
-		  </script>
+		</script>
 		<script is:inline>
 		  document.addEventListener('astro:before-swap', () => {
-			document.documentElement.classList.add('is-transitioning');
+			// document.documentElement.classList.add('is-transitioning');
 		  });
 		  document.addEventListener('astro:after-swap', () => {
-			document.documentElement.classList.remove('is-transitioning');
+			// document.documentElement.classList.remove('is-transitioning');
 		  });
 		</script>
 	</head>
 	<body class="flex flex-col ">
-    <BGPattern variant="grid" mask="fade-edges" className="dark" />
+    <BGPattern variant="grid" mask="fade-edges" className="dark"/>
     <div class="container mx-auto px-[8vw]"> 
     <Header/>
     </div>

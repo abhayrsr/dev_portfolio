@@ -23,7 +23,7 @@ export default function AvatarSunrise({ imgSrc, widthClass, heightClass }: Props
     const radius = 20;
     const numZigs = 9;
     const angleStep = Math.PI / (numZigs - 1);
-    <AvatarSunrise imgSrc="dev1.png" client:only />;
+    <AvatarSunrise imgSrc="/dev1.png" client:only />;
 
     for (let i = 0; i < numZigs - 1; i++) {
       const theta1 = Math.PI + i * angleStep;

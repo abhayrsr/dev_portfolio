@@ -14,6 +14,7 @@ export default defineConfig({
     ],
   },
   integrations: [react()],
+  viewTransitions: true,
   vite: {
     plugins: [tailwindcss()],
   },

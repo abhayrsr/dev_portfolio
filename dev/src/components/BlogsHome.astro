@@ -10,10 +10,10 @@ const blogs = posts.sort(
 
 ---
 
-<section class="container flex justify-center z-10 relative">
+<section class="container flex justify-center relative">
   <div class="mt-8 items-center">
      <TracingBeam class="" client:only>
-      <div class="max-w-lg antialiased  pt-4 gap-y-3 ">
+      <div class="max-w-lg antialiased grid pt-4 ">
     
       {blogs.map((post, index) => (
           <div class="mt-8">
@@ -25,7 +25,7 @@ const blogs = posts.sort(
               <img src={post.data.image.url} alt={post.data.image.alt} class="rounded-lg mb-4" />
             )}
             <p class="text-sm text-gray-500">{post.data.description}</p>
-            <a href={`/posts/${post.slug}`} class=" text-blue-500 ">Read article ></a>
+            <a href={`/posts/${post.slug}`} class=" text-blue-500 z-18">Read ></a>
           </div> ))}    
     </div>
      </TracingBeam>

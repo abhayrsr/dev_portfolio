@@ -9,9 +9,9 @@ const navItems = [
 { name: 'About', url: '/about', icon: 'User' },
 { name: 'Blogs', url: '/posts/blogs/1', icon: 'FileText' },
 { name: 'Projects', url: '/projects', icon: 'Briefcase' },
-     ]
+]
 ---
-<header class="container mx-auto" transition:name="main-header">
+<header class="container mx-auto" >
    <div class="flex items-center justify-between">
     
     <!-- Empty div or logo (optional left-aligned content) -->
@@ -19,7 +19,7 @@ const navItems = [
 
     <!-- Centered NavBar -->
     <div class="w-[60%] flex justify-center ">
-      <NavBar items={navItems} client:only />
+      <NavBar items={navItems} client:only transition:persist />
     </div>
 
     <!-- Right-aligned ThemeIcon -->
@@ -32,18 +32,4 @@ const navItems = [
    </div>
 </header>
 
-<script is:inline>
-  const header = document.querySelector('[data-header]');
-  let lastScrollY = 0;
 
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > lastScrollY) {
-      // Scrolling down
-      header.classList.add('-translate-y-full');
-    } else {
-      // Scrolling up
-      header.classList.remove('-translate-y-full');
-    }
-    lastScrollY = window.scrollY;
-  });
-</script>
