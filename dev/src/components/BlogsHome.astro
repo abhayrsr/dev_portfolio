@@ -2,11 +2,11 @@
 import { TracingBeam } from "../components/ui/tracing-beam.tsx";
 import { getCollection } from "astro:content";
 
-const blogs = (await getCollection('posts')).sort(
+const { posts } = Astro.props
+
+const blogs = posts.sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
-
-const { posts } = Astro.props
 
 ---
 
@@ -15,7 +15,7 @@ const { posts } = Astro.props
      <TracingBeam class="" client:only>
       <div class="max-w-lg antialiased  pt-4 gap-y-3 ">
     
-      {posts.map((post, index) => (
+      {blogs.map((post, index) => (
           <div class="mt-8">
             <a href={`/posts/${post.slug}`} class="text-2xl font-bold no-underline hover:underline">
               <h2 class="">{post.data.title}</h2>
