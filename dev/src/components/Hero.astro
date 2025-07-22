@@ -203,40 +203,83 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 
   </div>
 </section>
-<section class="mx-auto">
-   <div >
-      <HoverEffect items={projects} client:only/>
+<section class="mx-auto z-20">
+   <div id="projects-hover-section">
+      <HoverEffect  items={projects} client:only/>
    </div>
   <div class="flex justify-center">
-    <a href="/projects" class="border rounded-sm border-blue-500 hover:bg-gray-900 hover:text-white cursor-pointer p-2  z-16 active:scale-95 transition-transform">View All Projects</a>
+    <a href="/projects" class="border rounded-sm border-blue-500 hover:bg-gray-900 hover:text-white cursor-pointer p-2 active:scale-95 transition-transform">View All Projects</a>
   </div>
 
 </section>
-{/* <section class="bg-transparent relative">
-    <div class="container z-10 mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          class="flex flex-col items-center justify-center max-w-[540px] mx-auto"
-        >
-         </motion.div>
-     <div class="flex justify-center gap-6 mt-10 [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
-       <TestimonialsColumn testimonials={firstColumn} duration={15} client:only />
-          <TestimonialsColumn testimonials={secondColumn} class="hidden md:block" duration={19} client:only/>
-          <TestimonialsColumn testimonials={thirdColumn} class="hidden lg:block" duration={17} client:only/>
-     </div>
-    </div>
-   </section>
-*/}
 <section class="max-w-5xl mx-auto">
-   <div>
+   <div id="blogs-hover-section">
       <HoverEffect items={blogs} client:only/>
    </div>
   <div class="flex justify-center">
     <a href="/posts/blogs" class="border rounded-sm border-blue-500 hover:bg-gray-900 hover:text-white cursor-pointer p-2  z-16 active:scale-95 transition-transform">View All Articles </a>
   </div>
 </section>
+
+<script is:inline>
+  let activeProjectsCardIndex = null;
+  let activeBlogsCardIndex = null;
+  let projectsInterval = null;
+  let blogsInterval = null;
+
+  const projectsSection = document.getElementById('projects-hover-section');
+  const blogsSection = document.getElementById('blogs-hover-section');
+
+  const observerCallback = (entries) => {
+    entries.forEach(entry => {
+      if (entry.target.id === 'projects-hover-section') {
+        if (entry.isIntersecting) {
+          let currentIdx = 0;
+          projectsInterval = setInterval(() => {
+            activeProjectsCardIndex = currentIdx;
+            // Dispatch a custom event to update the React component
+            window.dispatchEvent(new CustomEvent('updateProjectsHover', { detail: currentIdx }));
+            currentIdx = (currentIdx + 1) % projects.length;
+          }, 2000); // Change card every 2 seconds
+        } else {
+          clearInterval(projectsInterval);
+          activeProjectsCardIndex = null;
+          window.dispatchEvent(new CustomEvent('updateProjectsHover', { detail: null }));
+        }
+      } else if (entry.target.id === 'blogs-hover-section') {
+        if (entry.isIntersecting) {
+          let currentIdx = 0;
+          blogsInterval = setInterval(() => {
+            activeBlogsCardIndex = currentIdx;
+            // Dispatch a custom event to update the React component
+            window.dispatchEvent(new CustomEvent('updateBlogsHover', { detail: currentIdx }));
+            currentIdx = (currentIdx + 1) % blogs.length;
+          }, 2000); // Change card every 2 seconds
+        } else {
+          clearInterval(blogsInterval);
+          activeBlogsCardIndex = null;
+          window.dispatchEvent(new CustomEvent('updateBlogsHover', { detail: null }));
+        }
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(observerCallback, {
+    root: null, // viewport
+    threshold: 0.5 // 50% of the section must be visible
+  });
+
+  if (projectsSection) observer.observe(projectsSection);
+  if (blogsSection) observer.observe(blogsSection);
+
+  // Listen for custom events in the React components
+  window.addEventListener('updateProjectsHover', (event) => {
+    // This part needs to be handled within the React component itself
+    // as Astro cannot directly update React component props from inline script
+  });
+  window.addEventListener('updateBlogsHover', (event) => {
+    // This part needs to be handled within the React component itself
+  });
+</script>
 
 
