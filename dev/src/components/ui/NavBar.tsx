@@ -38,10 +38,14 @@ export function NavBar({
     const setActiveLink = () => {
       const currentPath = window.location.pathname;
       const activeItem = items.find((item) => {
-        if (item.url === "/posts/blogs/1") {
-          return currentPath === "/blogs/1" || currentPath.startsWith("/posts/");
+        if (item.url === "/") {
+          return currentPath === "/"; // Exact match for home
+        } else if (item.url.startsWith("/posts/blogs")) {
+          // If the nav item is blogs, activate if current path starts with /posts/
+          return currentPath.startsWith("/posts/");
         }
-        return item.url === currentPath;
+        // For other items, check if the current path starts with the item's URL
+        return currentPath.startsWith(item.url);
       });
       if (activeItem) {
         setActiveTab(activeItem.url);
