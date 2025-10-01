@@ -5,7 +5,7 @@ import {HoverEffect } from '../components/ui/card-hover-effect.tsx'
 import {TestimonialsColumn} from '../components/blocks/testimonials-columns-1.tsx'
 import { motion } from "motion/react";
 import "../../global.css"
-const wordArray = [  {text: "a free soul.", className: "text-blue-500 dark:text-blue-500"} ];
+const wordArray = [  {text: "a lifelong student.", className: "text-blue-500 dark:text-blue-500"} ];
  const projects = [
   {
     title: "Project 1",
@@ -43,6 +43,8 @@ const blogs = [
       "A multinational technology company that specializes in Internet-related services and products.",
     link: "/posts/blogs",
   },
+
+  /*
    {
     title: "Blog Post 4",
     description:
@@ -60,7 +62,7 @@ const blogs = [
     description:
       "A multinational technology company that specializes in Internet-related services and products.",
       link: "/posts/blogs",
-  },
+      }, */
 
   ];
 
@@ -138,21 +140,22 @@ const thirdColumn = testimonials.slice(6, 9);
     </div>
     <div class="w-[80%]" >
       <p class="sm:w-full flex lg:justify-start mt-4 ">
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      From trying to create a living as a marketer and a freelance writer to stumbling on Linux one day and developing a whole new passion for technology, I've transitioned from a person who hates to sit in front of a laptop to a freak who panics when away from his laptop for a day or two.
+      Today, I'm working at a growing startup with some amazing people, where we're building cloud-based AI pipelines, experimenting with LLMs and solving real-problem with code.
       </p>
     </div>
     <div class="w-full flex justify-start mt-7 gap-10 ">
-        <a href="#" aria-label="Twitter" >
+        <a href="https://x.com/abhayrsr76" aria-label="Twitter" >
             <svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
   <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.4.36a9.09 9.09 0 0 1-2.88 1.1A4.52 4.52 0 0 0 16.11 0c-2.5 0-4.52 2.17-4.52 4.86 0 .38.04.75.12 1.1C7.69 5.82 4.07 3.86 1.64.88a4.93 4.93 0 0 0-.61 2.44c0 1.68.86 3.17 2.17 4.04A4.48 4.48 0 0 1 .96 6.5v.05c0 2.35 1.61 4.3 3.75 4.74a4.52 4.52 0 0 1-2.05.08c.58 1.89 2.25 3.27 4.23 3.3A9.05 9.05 0 0 1 0 19.54a12.8 12.8 0 0 0 6.95 2.06c8.33 0 12.88-7.22 12.88-13.49 0-.2 0-.41-.02-.61A9.18 9.18 0 0 0 23 3z"/>
             </svg> 
         </a>
-          <a href="#" aria-label="LinkedIn" class="social-link">
+          <a href="https://linkedin.com/in/abhay-raj-01ab7a278/" aria-label="LinkedIn" class="social-link">
            <svg fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
   <path d="M4.98 3.5C4.98 2.12 6.1 1 7.48 1s2.5 1.12 2.5 2.5S8.86 6 7.48 6 4.98 4.88 4.98 3.5zM2 8h4.96v12H2zM9.04 8H14v1.84h.06c.69-1.29 2.37-2.64 4.86-2.64C21.93 7.2 23 9.22 23 12.29V20h-4.96v-7.17c0-1.71-.03-3.91-2.37-3.91-2.37 0-2.73 1.85-2.73 3.78V20H9.04z"/>
            </svg>
           </a>
-          <a href="#" aria-label="Github" class="social-link">
+          <a href="https://github.com/abhayrsr" aria-label="Github" class="social-link">
             <svg fill="currentColor" viewBox="0 0 24 24" class="w-5.5 h-5.5">
   <path d="M12 0C5.37 0 0 5.4 0 12.08c0 5.34 3.44 9.86 8.21 11.47.6.11.82-.26.82-.58 0-.29-.01-1.05-.01-2.05-3.34.73-4.04-1.61-4.04-1.61-.55-1.42-1.35-1.8-1.35-1.8-1.1-.77.08-.75.08-.75 1.21.09 1.85 1.27 1.85 1.27 1.08 1.87 2.83 1.33 3.52 1.01.11-.8.42-1.33.76-1.64-2.66-.31-5.47-1.36-5.47-6.06 0-1.34.47-2.44 1.24-3.3-.13-.31-.54-1.56.12-3.25 0 0 1.01-.33 3.3 1.26a11.3 11.3 0 0 1 6 0c2.29-1.59 3.3-1.26 3.3-1.26.66 1.69.25 2.94.12 3.25.77.86 1.23 1.96 1.23 3.3 0 4.71-2.81 5.74-5.49 6.05.43.37.81 1.11.81 2.24 0 1.62-.01 2.93-.01 3.33 0 .32.22.69.83.57C20.57 21.94 24 17.42 24 12.08 24 5.4 18.63 0 12 0z"/>
 </svg>
@@ -207,16 +210,16 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
    <div id="projects-hover-section">
       <HoverEffect  items={projects} client:only/>
    </div>
-  <div class="flex justify-center">
+  <div class="flex justify-center delayed-fade-in">
     <a href="/projects" class="border rounded-sm border-blue-500 hover:bg-gray-900 hover:text-white cursor-pointer p-2 active:scale-95 transition-transform">View All Projects</a>
   </div>
 
 </section>
-<section class="max-w-5xl mx-auto">
+<section class="max-w-5xl mx-auto z-20">
    <div id="blogs-hover-section">
       <HoverEffect items={blogs} client:only/>
    </div>
-  <div class="flex justify-center">
+  <div class="flex justify-center delayed-fade-in">
     <a href="/posts/blogs" class="border rounded-sm border-blue-500 hover:bg-gray-900 hover:text-white cursor-pointer p-2  z-16 active:scale-95 transition-transform">View All Articles </a>
   </div>
 </section>

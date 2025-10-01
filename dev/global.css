@@ -19,17 +19,17 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-card-foreground: var(--card_foreground);
   --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
+  --color-popover-foreground: var(--popover_foreground);
   --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-foreground: var(--primary_foreground);
   --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-foreground: var(--secondary_foreground);
   --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
+  --color-muted-foreground: var(--muted_foreground);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-foreground: var(--accent_foreground);
   --color-destructive: var(--destructive);
   --color-border: var(--border);
   --color-input: var(--input);
@@ -40,13 +40,13 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-foreground: var(--sidebar_foreground);
+  --color-sidebar-primary: var(--sidebar_primary);
+  --color-sidebar-primary-foreground: var(--sidebar_primary_foreground);
+  --color-sidebar-accent: var(--sidebar_accent);
+  --color-sidebar-accent-foreground: var(--sidebar_accent_foreground);
+  --color-sidebar-border: var(--sidebar_border);
+  --color-sidebar-ring: var(--sidebar_ring);
 }
 
 :root {
@@ -181,3 +181,18 @@ html::view-transition {
   cursor: progress;
 }
 @view-transition {navigation: auto}
+
+.delayed-fade-in {
+  opacity: 0;
+  animation: fade-in 1s ease-in-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
